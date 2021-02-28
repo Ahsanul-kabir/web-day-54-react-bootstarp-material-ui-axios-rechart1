@@ -6,8 +6,12 @@ import Product from '../Product/Product';
 const Shop = () => {
     const first10 = fakeData.slice(0, 10);
     const [products, setProducts] = useState(first10);
+    const [cart,setCart] =useState([]);
+
     const handleAddProduct = (product) => {
-        console.log('producted added',product)
+        console.log('producted added',product);
+        const newCart = [...cart,product];
+        setCart(newCart);
     }
     return (
         <div>
@@ -23,6 +27,8 @@ const Shop = () => {
                 </div>
                 <div className="cart-container">
                     <h1>This is cart</h1>
+                    <h5>Order Summary: {cart.length}</h5>
+
                 </div>
             </div>
 
